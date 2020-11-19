@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: curl -H "Content-Type: application/json" -d '{"embeds": [{"title": "Title"}]}' -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ
+      - run: "curl -H \"Content-Type: application/json\" -d '{\"embeds\": [{\"title\": \"Title\"}]}' -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ"
