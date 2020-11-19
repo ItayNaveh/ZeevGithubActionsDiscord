@@ -10,7 +10,7 @@ jobs:
       {
         \"embeds\": [
           {
-            \"title\": \"Title\"
+            \"title\": \"${{ github.action }}\"
           }
         ]
       }'
