@@ -10,7 +10,7 @@ jobs:
       {
         \"embeds\": [
           {
-            \"title\": \"${{ github.event }} - ${{ job.status }}\",
+            \"title\": \"${{ github.event_name }} - ${{ job.status }}\",
             \"description\": \"In repository: ${{ github.repository }}\"
           }
         ]
