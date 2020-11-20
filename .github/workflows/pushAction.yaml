@@ -2,27 +2,40 @@ on: push
 
 
 jobs:
-  sendMessage:
-    name: Send Message
-    runs-on: ubuntu-latest
+  buildAndSend:
+    name: Build And Send Message
+    runs-on: ubuntu-18.04
 
     steps:
-      - run: "echo 'Github: ${{ toJSON(github) }}'"
-      - run: "echo 'Env: ${{ toJSON(env) }}'"
-      - run: "echo 'Job: ${{ toJSON(job) }}'"
-      - run: "echo 'Steps: ${{ toJSON(steps) }}'"
-      - run: "echo 'Runner: ${{ toJSON(runner) }}'"
-      - run: "echo 'Secrets: ${{ toJSON(secrets) }}'"
-      - run: "echo 'Strategy: ${{ toJSON(strategy) }}'"
-      - run: "echo 'Matrix: ${{ toJSON(matrix) }}'"
-      - run: "echo 'Needs: ${{ toJSON(needs) }}'"
+      # Log The Contexts
+      # - run: "echo 'Github: ${{ toJSON(github) }}'"
+      # - run: "echo 'Env: ${{ toJSON(env) }}'"
+      # - run: "echo 'Job: ${{ toJSON(job) }}'"
+      # - run: "echo 'Steps: ${{ toJSON(steps) }}'"
+      # - run: "echo 'Runner: ${{ toJSON(runner) }}'"
+      # - run: "echo 'Secrets: ${{ toJSON(secrets) }}'"
+      # - run: "echo 'Strategy: ${{ toJSON(strategy) }}'"
+      # - run: "echo 'Matrix: ${{ toJSON(matrix) }}'"
+      # - run: "echo 'Needs: ${{ toJSON(needs) }}'"
+
+      - name: "checkout"
+        uses: actions/checkout@v2
+
+
+      - name: "build"
+        uses: actions/setup_node@v1
+        run: "npm run build"
       
 
       - name: "sendmmm"
         env:
           MSG: '{
-            "title": "${{ github.event_name }} - ${{ job.status }}",
-            "description": "In repository: ${{ github.repository }}"
+            "title": "${{ github.event.pusher.name }} Pushed",
+            "description": "In repository: ${{ github.repository }}",
+            "fields": [
+              {"name": "Status", "value": "${{ job.status }}"},
+              {"name": "In Repository:", "value": "${{ github.event.repository.html_url }}"}
+            ]
           }'
         run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
     
