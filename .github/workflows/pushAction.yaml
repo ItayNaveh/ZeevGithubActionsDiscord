@@ -30,11 +30,11 @@ jobs:
         run: "npm ci"
 
       - name: "build"
+        continue-on-error: true
         run: "npm run build"
       
 
       - name: "sendmmm"
-        continue-on-error: true
         env:
           MSG: '{
             "title": "${{ github.event.pusher.name }} Pushed",
