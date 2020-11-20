@@ -32,6 +32,8 @@ jobs:
       - name: "build"
         continue-on-error: true
         run: "npm run build"
+
+      - run: echo Steps ${{ steps }}
       
 
       - name: "sendmmm"
