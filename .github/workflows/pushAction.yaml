@@ -30,6 +30,7 @@ jobs:
         env:
           MSG: '{
             "title": "Contexts",
+            "description": "desc"
             "fields": [
               {  "name": "Github",   "value":  "${{ toJSON(github) }}"    },
               {  "name": "Env",      "value":  "${{ toJSON(env) }}"       },
