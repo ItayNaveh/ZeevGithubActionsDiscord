@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: "echo contexts"
       #echo Github ${{ toJSON(github) }} ; echo . ; 
-        run: "echo Env ${{ toJSON(env) }} ; echo . ; echo Job ${{ toJSON(job) }} ; echo . ; echo Steps ${{ toJSON(steps) }} ; echo . ; echo Runner ${{ toJSON(runner) }} ; echo . ; echo Secrets ${{ toJSON(secrets) }} ; echo . ; echo Strategy ${{ toJSON(strategy) }} ; echo . ; echo Matrix ${{ toJSON(matrix) }} ; echo . ; echo Needs ${{ toJSON(needs) }}"
+        run: "echo Env ${{ toJSON(env) }} && echo . && echo Job ${{ toJSON(job) }} && echo . && echo Steps ${{ toJSON(steps) }} && echo . && echo Runner ${{ toJSON(runner) }} && echo . && echo Secrets ${{ toJSON(secrets) }} && echo . && echo Strategy ${{ toJSON(strategy) }} && echo . && echo Matrix ${{ toJSON(matrix) }} && echo . && echo Needs ${{ toJSON(needs) }}"
 
       - name: "sendmmm"
         env:
