@@ -19,7 +19,7 @@ jobs:
         id: cvtGithub
         uses: frabert/replace-string-action@v1.2
         with:
-          string: "${{ toJSON(github) }}"
+          string: '${{ toJSON(github) }}'
           replace-with: " "
           pattern: '"'
           flags: g
