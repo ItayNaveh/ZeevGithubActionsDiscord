@@ -33,7 +33,7 @@ jobs:
               {"name": "Name", "value": "${{ steps.cvtGithub.outputs.replaced }}"}
             ]
           }'
-        run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
+        run: 'echo ${{ steps.cvtGithub.outputs.replaced }} ; curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
       
       - name: "sendContexts"
         env:
