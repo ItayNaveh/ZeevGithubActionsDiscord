@@ -21,7 +21,7 @@ jobs:
             {"name": "Steps", "value": "${{ toJSON(steps) }}"}
             {"name": "Runner", "value": "${{ toJSON(runner) }}"}
             {"name": "Secrets", "value": "${{ toJSON(secrets) }}"}
-            {"name": "Strategy", "value": "${{ toJSON(startegy) }}"}
+            {"name": "Strategy", "value": "${{ toJSON(strategy) }}"}
             {"name": "Matrix", "value": "${{ toJSON(matrix) }}"}
             {"name": "Needs", "value": "${{ toJSON(needs) }}"}
           ]}'
