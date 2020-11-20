@@ -15,13 +15,22 @@ jobs:
           }'
         run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
     
+      - name: "Convert Github Object"
+        id: cvtGithub
+        uses: frabert/replace-string-action@v1.2
+        with:
+          string: ${{ github }}
+          replace-with: " "
+          pattern: "'"
+          flags: g
+      
       - name: "embedFieldsTest"
         env:
           MSG: '{
             "title": "Fields Test",
             "description": "desc",
             "fields": [
-              {"name": "Name", "value": {"a": "a"}}
+              {"name": "Name", "value": "${{ steps.cvtGithub.outputs.replaced }}"}
             ]
           }'
         run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
