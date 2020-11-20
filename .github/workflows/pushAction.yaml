@@ -7,16 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - run: !join ['curl -H "Content-Type: application/json" -d ', '{
-      #     "embeds": [
-      #       {
-      #         "title": "${{ github.event_name }} - ${{ job.status }}",
-      #         "description": "In repository: ${{ github.repository }}"
-      #       }
-      #     ]
-      #   }',
-      #   ' -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
-      # ]
+      - name: "sendmmm"
+        env:
+          MSG: '{"title": "${{ github.event_name }} - ${{ job.status }}", "description": "In repository: ${{ github.repository }}"}'
+        run: "curl -H 'Content-Type: application/json' -d '{\"embeds\": [$MSG]} -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ"
+      
       - name: "aa"
         env:
           THING: "THE_THING_VALUE"
