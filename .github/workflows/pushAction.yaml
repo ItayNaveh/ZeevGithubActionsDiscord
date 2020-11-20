@@ -34,7 +34,7 @@ jobs:
         run: "npm run build"
 
       - name: "steps"
-        run: "echo Steps ${{ steps }}"
+        run: "echo Steps ${{ toJSON(steps) }}"
       
 
       - name: "sendmmm"
