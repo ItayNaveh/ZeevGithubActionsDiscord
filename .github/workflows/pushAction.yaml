@@ -15,20 +15,28 @@ jobs:
           }'
         run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
     
+      - name: "embedFieldsTest"
+        env:
+          MSG: '{
+            "title": "Fields Test",
+            "description": "desc"
+          }'
+        run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
+      
       - name: "sendContexts"
         env:
           MSG: '{
             "title": "Contexts",
             "fields": [
-              {"name": "Github", "value": "${{ toJSON(github) }}"},
-              {"name": "Env", "value": "${{ toJSON(env) }}"},
-              {"name": "Job", "value": "${{ toJSON(job) }}"},
-              {"name": "Steps", "value": "${{ toJSON(steps) }}"},
-              {"name": "Runner", "value": "${{ toJSON(runner) }}"},
-              {"name": "Secrets", "value": "${{ toJSON(secrets) }}"},
-              {"name": "Strategy", "value": "${{ toJSON(strategy) }}"},
-              {"name": "Matrix", "value": "${{ toJSON(matrix) }}"},
-              {"name": "Needs", "value": "${{ toJSON(needs) }}"}
+              {  "name": "Github",   "value":  "${{ toJSON(github) }}"    },
+              {  "name": "Env",      "value":  "${{ toJSON(env) }}"       },
+              {  "name": "Job",      "value":  "${{ toJSON(job) }}"       },
+              {  "name": "Steps",    "value":  "${{ toJSON(steps) }}"     },
+              {  "name": "Runner",   "value":  "${{ toJSON(runner) }}"    },
+              {  "name": "Secrets",  "value":  "${{ toJSON(secrets) }}"   },
+              {  "name": "Strategy", "value":  "${{ toJSON(strategy) }}"  },
+              {  "name": "Matrix",   "value":  "${{ toJSON(matrix) }}"    },
+              {  "name": "Needs",    "value":  "${{ toJSON(needs) }}"     }
             ]
           }'
         run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
