@@ -21,7 +21,7 @@ jobs:
         with:
           string: '${{ toJSON(github) }}'
           replace-with: " "
-          pattern: '"'
+          pattern: '"|\n'
           flags: g
       
       - name: "embedFieldsTest"
