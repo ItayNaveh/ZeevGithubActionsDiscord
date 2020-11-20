@@ -19,9 +19,9 @@ jobs:
         id: cvtGithub
         uses: frabert/replace-string-action@v1.2
         with:
-          string: ${{ github }}
+          string: "${{ github }}"
           replace-with: " "
-          pattern: "'"
+          pattern: '"'
           flags: g
       
       - name: "embedFieldsTest"
