@@ -2,8 +2,8 @@ on: push
 
 
 jobs:
-  buildAndSend:
-    name: Build And Send Message
+  build:
+    name: Build
     runs-on: ubuntu-18.04
 
     steps:
@@ -30,57 +30,21 @@ jobs:
         run: "npm ci"
 
       - name: "build"
-        id: build
-        continue-on-error: true
         run: "npm run build"
 
 
+  sendMessage:
+    name: Send Message
+    runs-on: ubuntu-18.04
+
+    steps:
       - name: "sendmmm"
         env:
           MSG: '{
             "title": "${{ github.event.pusher.name }} Pushed",
             "description": "In repository: ${{ github.event.repository.html_url }}",
             "fields": [
-              {"name": "Status", "value": "${{ steps.build.outcome }}"}
+              {"name": "Status", "value": "${{ job.status }}"}
             ]
           }'
         run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
-    
-      # - name: "Convert Github Object"
-      #   id: cvtGithub
-      #   uses: frabert/replace-string-action@v1.2
-      #   with:
-      #     string: '${{ toJSON(github) }}'
-      #     replace-with: " "
-      #     pattern: '"|\n'
-      #     flags: g
-      
-      # - name: "embedFieldsTest"
-      #   env:
-      #     MSG: '{
-      #       "title": "Fields Test",
-      #       "description": "desc",
-      #       "fields": [
-      #         {"name": "Name", "value": "${{ steps.cvtGithub.outputs.replaced }}"}
-      #       ]
-      #     }'
-      #   run: 'echo ${{ steps.cvtGithub.outputs.replaced }} ; curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
-      
-      # - name: "sendContexts"
-      #   env:
-      #     MSG: '{
-      #       "title": "Contexts",
-      #       "description": "desc"
-      #       "fields": [
-      #         {  "name": "Github",   "value":  "${{ toJSON(github) }}"    },
-      #         {  "name": "Env",      "value":  "${{ toJSON(env) }}"       },
-      #         {  "name": "Job",      "value":  "${{ toJSON(job) }}"       },
-      #         {  "name": "Steps",    "value":  "${{ toJSON(steps) }}"     },
-      #         {  "name": "Runner",   "value":  "${{ toJSON(runner) }}"    },
-      #         {  "name": "Secrets",  "value":  "${{ toJSON(secrets) }}"   },
-      #         {  "name": "Strategy", "value":  "${{ toJSON(strategy) }}"  },
-      #         {  "name": "Matrix",   "value":  "${{ toJSON(matrix) }}"    },
-      #         {  "name": "Needs",    "value":  "${{ toJSON(needs) }}"     }
-      #       ]
-      #     }'
-      #   run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
