@@ -6,6 +6,8 @@ jobs:
     name: Build
     runs-on: ubuntu-18.04
 
+    continue-on-error: true
+
     steps:
       # Log The Contexts
       # - run: "echo 'Github: ${{ toJSON(github) }}'"
