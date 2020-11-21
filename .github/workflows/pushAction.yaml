@@ -35,11 +35,12 @@ jobs:
         id: build
         run: "npm run build"
         continue-on-error: true
-        outputs:
-          status: "statss"
 
       - name: Steps
         run: "echo ${{ toJSON(steps) }}"
+
+    outputs:
+      status: "statss"
 
   sendMessage:
     name: Send Message
