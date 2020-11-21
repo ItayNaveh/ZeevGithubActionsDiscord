@@ -37,6 +37,8 @@ jobs:
     name: Send Message
     runs-on: ubuntu-18.04
 
+    needs: build
+
     steps:
       - name: "sendmmm"
         env:
