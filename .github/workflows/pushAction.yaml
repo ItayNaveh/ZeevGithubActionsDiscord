@@ -42,6 +42,8 @@ jobs:
     needs: build
 
     steps:
+      - name: Needs
+        run: "echo ${{ toJSON(needs) }}"
       - name: "sendmmm"
         env:
           MSG: '{
