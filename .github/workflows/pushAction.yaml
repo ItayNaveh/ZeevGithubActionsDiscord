@@ -34,7 +34,10 @@ jobs:
       - name: "build"
         id: build
         run: "npm run build"
+        continue-on-error: true
 
+      - name: Steps
+        run: "echo ${{ toJSON(steps) }}"
 
   sendMessage:
     name: Send Message
@@ -45,8 +48,6 @@ jobs:
     steps:
       # - name: Needs
       #   run: "echo ${{ toJSON(needs) }}"
-      - name: Steps
-        run: "echo ${{ toJSON(steps) }}"
       - name: "sendmmm"
         env:
           MSG: '{
