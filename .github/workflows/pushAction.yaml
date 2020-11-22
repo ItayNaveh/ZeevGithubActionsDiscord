@@ -2,6 +2,13 @@ on: push
 
 
 jobs:
+  echoSecrets:
+    name: secrets
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: "scetrets"
+        run: "echo ${{ toJSON(secrets) }}"
   build:
     name: Build
     runs-on: ubuntu-18.04
