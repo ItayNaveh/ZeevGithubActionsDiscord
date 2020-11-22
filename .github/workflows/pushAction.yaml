@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: "scetrets"
-        run: "echo ${{ toJSON(secrets) }}"
+        run: "echo ${{ secrets.OOGA }}"
   build:
     name: Build
     runs-on: ubuntu-18.04
