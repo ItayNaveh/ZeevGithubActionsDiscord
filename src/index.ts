@@ -1,2 +1,2 @@
 console.log("heyyyyyy");
-consolelog("error")
+consolelog("error");
