@@ -35,6 +35,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: "aaaaaaaa"
         uses: ./.github/actions/discord-notifier/
+        with:
+          status: ${{ needs.build.outputs.status }}

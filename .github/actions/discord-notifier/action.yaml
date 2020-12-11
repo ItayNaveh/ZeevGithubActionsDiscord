@@ -1,5 +1,10 @@
-name: "My Discord Notifier"
+name: "Discord Notifier"
 description: "https://discord.com/developers/docs/resources/channel#embed-object"
+
+inputs:
+  status:
+      description: "Status to display"
+      required: true
 
 runs:
   using: "node12"
