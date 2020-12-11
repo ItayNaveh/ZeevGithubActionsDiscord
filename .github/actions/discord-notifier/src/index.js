@@ -5,7 +5,7 @@ const fetch = require("node-fetch").default;
 const main = async() => {
     try {
         const webhookID = core.getInput("webhook-id");
-        const webhookToken = core.getInput("webhook-token");
+        // const webhookToken = core.getInput("webhook-token");
         const status = core.getInput("status");
         //success
         //failure
