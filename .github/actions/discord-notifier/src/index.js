@@ -12,7 +12,7 @@ const main = async() => {
         
         const response = await fetch(`https://discord.com/api/webhooks/${webhookID}/${webhookToken}`, {
             method: "POST",
-            headers: {"Application-Type": "application/json"},
+            headers: {"Content-Type": "application/json"},
             body: {
                 embeds: [
                     {
