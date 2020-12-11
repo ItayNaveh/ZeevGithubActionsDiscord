@@ -30,5 +30,8 @@ jobs:
     needs: build
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: "aaaaaaaa"
         uses: ./.github/actions/discord-notifier/
