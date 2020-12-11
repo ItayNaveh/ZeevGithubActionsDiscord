@@ -1,0 +1,14 @@
+on: push
+
+
+jobs:
+  useTheAction:
+    name: AA
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: "aaaaaaaa"
+        uses: ItayNaveh/MyDiscordNotifier@testing
+        with:
+          webhook-id: ""
+          webhook-token: ""
