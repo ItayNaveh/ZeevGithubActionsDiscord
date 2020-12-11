@@ -33,7 +33,7 @@ const main = async() => {
                 embeds: [
                     {
                         title: "Title",
-                        description: status
+                        description: `${status}`
                     }
                 ]
             },
