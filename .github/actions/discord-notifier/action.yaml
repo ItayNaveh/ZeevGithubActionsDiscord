@@ -1,0 +1,6 @@
+name: "My Discord Notifier"
+description: "https://discord.com/developers/docs/resources/channel#embed-object"
+
+runs:
+  using: "node12"
+  main: "src/index.js"
