@@ -62,13 +62,13 @@ jobs:
     needs: build
 
     steps:
-      - name: "sendmmm"
-        env:
-          MSG: '{
-            "title": "${{ github.event.pusher.name }} Pushed",
-            "description": "In repository: ${{ github.event.repository.html_url }}",
-            "fields": [
-              {"name": "Status", "value": "${{ needs.build.outputs.status }}"}
-            ]
-          }'
-        run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
+      # - name: "sendmmm"
+      #   env:
+      #     MSG: '{
+      #       "title": "${{ github.event.pusher.name }} Pushed",
+      #       "description": "In repository: ${{ github.event.repository.html_url }}",
+      #       "fields": [
+      #         {"name": "Status", "value": "${{ needs.build.outputs.status }}"}
+      #       ]
+      #     }'
+      #   run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
