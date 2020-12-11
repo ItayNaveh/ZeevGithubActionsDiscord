@@ -10,20 +10,20 @@ const main = async() => {
         //success
         //failure
 
-        console.log("status::");
-        console.log(await (await fetch(`https://post-test.herokuapp.com/single/${status}`)).json());
+        // console.log("status::");
+        // console.log(await (await fetch(`https://post-test.herokuapp.com/single/${status}`)).json());
 
-        console.log("webhook id::");
-        console.log(await (await fetch(`https://post-test.herokuapp.com/single/${webhookID}`)).json());
+        // console.log("webhook id::");
+        // console.log(await (await fetch(`https://post-test.herokuapp.com/single/${webhookID}`)).json());
 
-        console.log("webhook token::");
-        console.log(await (await fetch(`https://post-test.herokuapp.com/single/${webhookToken}`)).json());
+        // console.log("webhook token::");
+        // console.log(await (await fetch(`https://post-test.herokuapp.com/single/${webhookToken}`)).json());
 
-        console.log("id and token::");
-        console.log(await (await fetch(`https://post-test.herokuapp.com/double/${webhookID}/${webhookToken}`)).json());
+        // console.log("id and token::");
+        // console.log(await (await fetch(`https://post-test.herokuapp.com/double/${webhookID}/${webhookToken}`)).json());
 
-        console.log("id and token::");
-        console.log(await (await fetch(`https://post-test.herokuapp.com/body`, {method: "POST", headers: {"Content-Type": "application/json"}, body: {status: status, id: webhookID, token: webhookToken}})).json());
+        // console.log("id and token::");
+        // console.log(await (await fetch(`https://post-test.herokuapp.com/body`, {method: "POST", headers: {"Content-Type": "application/json"}, body: {status: status, id: webhookID, token: webhookToken}})).json());
 
         
         const response = await fetch(`https://discord.com/api/webhooks/${webhookID}/${webhookToken}`, {
@@ -33,7 +33,7 @@ const main = async() => {
                 embeds: [
                     {
                         title: "Title",
-                        description: status,
+                        description: status
                     }
                 ]
             },
