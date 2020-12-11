@@ -23,6 +23,9 @@ jobs:
         id: build
         run: "npm run build"
 
+    outputs:
+      status: "${{ steps.build.outcome }}"
+
   sendMessage:
     name: "Send Message"
     runs-on: ubuntu-18.04
