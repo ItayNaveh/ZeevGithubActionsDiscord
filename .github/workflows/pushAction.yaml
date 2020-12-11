@@ -1,74 +1,74 @@
-on: push
+# on: push
 
 
-jobs:
-  echoSecrets:
-    name: secrets
-    runs-on: ubuntu-18.04
+# jobs:
+#   echoSecrets:
+#     name: secrets
+#     runs-on: ubuntu-18.04
 
-    steps:
-      - name: "scetrets"
-        run: "echo ${{ secrets.OOGA }}"
+#     steps:
+#       - name: "scetrets"
+#         run: "echo ${{ secrets.OOGA }}"
 
-      - name: "Post secrets"
-        env:
-          MSG: '{"a": "${{ secrets.OOGA }}"}'
-          OOGA: "${{ secrets.OOGA }}"
-        run: "echo $OOGA"
-      - name: "get with secret in env"
-        env:
-          OOGA: ${{ secrets.OOGA }}
-        run: 'curl https://post-test.herokuapp.com/b/$OOGA'
-  build:
-    name: Build
-    runs-on: ubuntu-18.04
+#       - name: "Post secrets"
+#         env:
+#           MSG: '{"a": "${{ secrets.OOGA }}"}'
+#           OOGA: "${{ secrets.OOGA }}"
+#         run: "echo $OOGA"
+#       - name: "get with secret in env"
+#         env:
+#           OOGA: ${{ secrets.OOGA }}
+#         run: 'curl https://post-test.herokuapp.com/b/$OOGA'
+#   build:
+#     name: Build
+#     runs-on: ubuntu-18.04
 
-    continue-on-error: true
+#     continue-on-error: true
 
-    steps:
-      # Log The Contexts
-      # - run: "echo 'Github: ${{ toJSON(github) }}'"
-      # - run: "echo 'Env: ${{ toJSON(env) }}'"
-      # - run: "echo 'Job: ${{ toJSON(job) }}'"
-      # - run: "echo 'Steps: ${{ toJSON(steps) }}'"
-      # - run: "echo 'Runner: ${{ toJSON(runner) }}'"
-      # - run: "echo 'Secrets: ${{ toJSON(secrets) }}'"
-      # - run: "echo 'Strategy: ${{ toJSON(strategy) }}'"
-      # - run: "echo 'Matrix: ${{ toJSON(matrix) }}'"
-      # - run: "echo 'Needs: ${{ toJSON(needs) }}'"
+#     steps:
+#       # Log The Contexts
+#       # - run: "echo 'Github: ${{ toJSON(github) }}'"
+#       # - run: "echo 'Env: ${{ toJSON(env) }}'"
+#       # - run: "echo 'Job: ${{ toJSON(job) }}'"
+#       # - run: "echo 'Steps: ${{ toJSON(steps) }}'"
+#       # - run: "echo 'Runner: ${{ toJSON(runner) }}'"
+#       # - run: "echo 'Secrets: ${{ toJSON(secrets) }}'"
+#       # - run: "echo 'Strategy: ${{ toJSON(strategy) }}'"
+#       # - run: "echo 'Matrix: ${{ toJSON(matrix) }}'"
+#       # - run: "echo 'Needs: ${{ toJSON(needs) }}'"
 
-      - name: "checkout"
-        uses: actions/checkout@v2
+#       - name: "checkout"
+#         uses: actions/checkout@v2
 
-      - name: "Setup Node"
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14'
+#       - name: "Setup Node"
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: '14'
 
-      - name: "Install Dependencies"
-        run: "npm ci"
+#       - name: "Install Dependencies"
+#         run: "npm ci"
 
-      - name: "build"
-        id: build
-        run: "npm run build"
+#       - name: "build"
+#         id: build
+#         run: "npm run build"
 
-    outputs:
-      status: "${{ steps.build.outcome }}"
+#     outputs:
+#       status: "${{ steps.build.outcome }}"
 
-  sendMessage:
-    name: Send Message
-    runs-on: ubuntu-18.04
+#   sendMessage:
+#     name: Send Message
+#     runs-on: ubuntu-18.04
 
-    needs: build
+#     needs: build
 
-    steps:
-      # - name: "sendmmm"
-      #   env:
-      #     MSG: '{
-      #       "title": "${{ github.event.pusher.name }} Pushed",
-      #       "description": "In repository: ${{ github.event.repository.html_url }}",
-      #       "fields": [
-      #         {"name": "Status", "value": "${{ needs.build.outputs.status }}"}
-      #       ]
-      #     }'
-      #   run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
+#     steps:
+#       # - name: "sendmmm"
+#       #   env:
+#       #     MSG: '{
+#       #       "title": "${{ github.event.pusher.name }} Pushed",
+#       #       "description": "In repository: ${{ github.event.repository.html_url }}",
+#       #       "fields": [
+#       #         {"name": "Status", "value": "${{ needs.build.outputs.status }}"}
+#       #       ]
+#       #     }'
+#       #   run: 'curl -H "Content-Type: application/json" -d "{\"embeds\": [$MSG]}" -X POST https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ'
