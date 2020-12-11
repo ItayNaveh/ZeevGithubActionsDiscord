@@ -1,1 +1,1 @@
-console.log("verysecret");
+consolelog("verysecret");

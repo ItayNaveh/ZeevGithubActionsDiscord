@@ -21,6 +21,8 @@ const main = async() => {
         // console.log("workflow:", github.context.workflow);
 
         console.log(core.getInput("status"));
+        console.log(core.getInput("webhook-id"));
+        console.log(core.getInput("webhook-token"));
         
     } catch (error) {
         core.setFailed(error.message);

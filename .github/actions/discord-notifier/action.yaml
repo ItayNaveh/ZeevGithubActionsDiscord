@@ -6,6 +6,14 @@ inputs:
       description: "Status to display"
       required: true
 
+  webhook-id:
+    description: "WebHook ID"
+    required: true
+
+  webhook-token:
+    description: "WebHook Token"
+    required: true
+
 runs:
   using: "node12"
   main: "src/index.js"
