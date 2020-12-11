@@ -40,5 +40,5 @@ jobs:
         uses: ./.github/actions/discord-notifier/
         with:
           status: ${{ needs.build.outputs.status }}
-          webhook-id: 779046008684412979
+          webhook-id: "779046008684412979"
           # webhook-token: ${{ secrets.WEBHOOK_TOKEN }}
