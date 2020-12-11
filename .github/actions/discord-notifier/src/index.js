@@ -10,7 +10,7 @@ const main = async() => {
         //success
         //failure
         
-        fetch(`https://discord.com/api/webhooks/${webhookID}/${webhookToken}`, {
+        await fetch(`https://discord.com/api/webhooks/${webhookID}/${webhookToken}`, {
             method: "POST",
             headers: {"Application-Type": "application/json"},
             body: {
@@ -22,6 +22,7 @@ const main = async() => {
                 ]
             },
         });
+        console.log("done?")
         // console.log("action:", github.context.action);
         // console.log("actor: ", github.context.actor);
         // console.log("eventName:", github.context.eventName);
