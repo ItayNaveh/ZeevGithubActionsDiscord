@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: "aaaaaaaa"
-        uses: ItayNaveh/MyDiscordNotifier@testing2
+        uses: ItayNaveh/MyDiscordNotifier@testing3
         with:
           webhook-id: ""
           webhook-token: ""
