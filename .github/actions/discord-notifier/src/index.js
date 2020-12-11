@@ -26,7 +26,7 @@ const main = async() => {
         // console.log(await (await fetch(`https://post-test.herokuapp.com/body`, {method: "POST", headers: {"Content-Type": "application/json"}, body: {status: status, id: webhookID, token: webhookToken}})).json());
 
         
-        const response = await fetch(`https://discord.com/api/webhooks/${webhookID}/${webhookToken}`, {
+        const response = await fetch(`https://discord.com/api/webhooks/${webhookID}/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: {
