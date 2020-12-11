@@ -1,5 +1,5 @@
+name: "Use The Action"
 on: push
-
 
 jobs:
   useTheAction:
@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: "aaaaaaaa"
-        uses: ../actions/discord-notifier
+        uses: ./.github/actions/discord-notifier/
