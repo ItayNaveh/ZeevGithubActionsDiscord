@@ -36,7 +36,7 @@ const main = async() => {
                         description: `${status}`
                     }
                 ]
-            },
+            }
         });
         const data = await response.json();
         console.log("status -", response.status);
