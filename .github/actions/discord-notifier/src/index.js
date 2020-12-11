@@ -1,12 +1,27 @@
 const core = require("@actions/core");
-const github = require("@actions/github");
+// const github = require("@actions/github");
 const fetch = require("node-fetch").default;
 
 const main = async() => {
     try {
-        // const response = await fetch("https://discord.com/api/webhooks/779046008684412979/UaQqJmOHg7nwqNAupSc04_hiE-Hmrk61VwTwtgMEnuLcXFe95S29omkXHE-ikOzNk5bZ")
-        // const data = await response.json();
-        // console.log(data);
+        const webhookID = core.getInput("webhook-id");
+        const webhookToken = core.getInput("webhook-token");
+        const status = core.getInput("status");
+        //success
+        //failure
+        
+        fetch(`https://discord.com/api/webhooks/${webhookID}/${webhookToken}`, {
+            method: "POST",
+            headers: {"Application-Type": "application/json"},
+            body: {
+                embeds: [
+                    {
+                        title: "Title",
+                        description: status,
+                    }
+                ]
+            },
+        });
         // console.log("action:", github.context.action);
         // console.log("actor: ", github.context.actor);
         // console.log("eventName:", github.context.eventName);
@@ -19,11 +34,6 @@ const main = async() => {
         // console.log("runNumber:", github.context.runNumber);
         // console.log("sha:", github.context.sha);
         // console.log("workflow:", github.context.workflow);
-
-        console.log(core.getInput("status"));
-        console.log(core.getInput("webhook-id"));
-        console.log(core.getInput("webhook-token"));
-        
     } catch (error) {
         core.setFailed(error.message);
     }
