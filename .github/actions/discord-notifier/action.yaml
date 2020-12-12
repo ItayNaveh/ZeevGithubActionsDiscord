@@ -10,9 +10,9 @@ inputs:
     description: "WebHook ID"
     required: true
 
-  # webhook-token:
-  #   description: "WebHook Token"
-  #   required: true
+  webhook-token:
+    description: "WebHook Token"
+    required: true
 
 runs:
   using: "node12"
