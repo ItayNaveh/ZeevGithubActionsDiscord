@@ -11,8 +11,7 @@ const main = async() => {
         //success
         //failure
         const webhook = new discord.WebhookClient(webhookID, webhookToken);
-        webhook.send("ooooooooooga booga");
-        a
+        await webhook.send("ooooooooooga booga");
 
         // const data = await response.json();
         // console.log("status -", response.status);
@@ -35,4 +34,4 @@ const main = async() => {
         process.exit(1);
     }
 };
-main();
+main().then(() => process.exit(0));
