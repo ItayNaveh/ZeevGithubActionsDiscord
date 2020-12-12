@@ -45,7 +45,7 @@ jobs:
         run: "cd .github/actions/discord-notifier/ && npm ci"
 
       - name: "run the action"
-        uses: ./
+        uses: ./.github/actions/discord-notifier/
         with:
           status: ${{ needs.build.outputs.status }}
           webhook-id: "${{ secrets.WEBHOOK_ID }}"
