@@ -32,6 +32,7 @@ const main = async() => {
         // console.log("workflow:", github.context.workflow);
     } catch (error) {
         core.setFailed(error.message);
+        process.exit(1);
     }
 };
 main();
