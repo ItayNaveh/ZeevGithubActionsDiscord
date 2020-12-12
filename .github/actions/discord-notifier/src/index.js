@@ -7,15 +7,23 @@ const main = async() => {
     try {
         const webhookID = core.getInput("webhook-id");
         const webhookToken = core.getInput("webhook-token");
-        const status = core.getInput("status");
-        //success
-        //failure
-        // const webhook = new discord.WebhookClient(webhookID, webhookToken);
+        const status = core.getInput("status"); //success//failure
 
-        // const embed = new discord.MessageEmbed();
-        // embed.setTitle()
+        const data = github.context.payload;
+        
+        const webhook = new discord.WebhookClient(webhookID, webhookToken);
 
-        // await webhook.send("ooooooooooga booga");
+        const embed = new discord.MessageEmbed();
+
+        embed.setTitle(`${data.pusher.name} Pushed`);
+        embed.setDescription(`In ${data.repository.html_url}`);
+
+        embed.addFields(
+            {name: "Status", value: status}
+        );
+
+
+        await webhook.send(embed);
 
         console.log("done");
         console.log("action:", github.context.action);

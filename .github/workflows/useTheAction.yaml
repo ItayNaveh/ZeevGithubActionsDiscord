@@ -36,8 +36,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: "aaaaaaaa"
-        uses: ./.github/actions/discord-notifier/
+      - name: "Setup Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - name: "dependencies"
+        run: "cd .github/actions/discord-notifier/ && npm ci"
+
+      - name: "run the action"
+        uses: ./
         with:
           status: ${{ needs.build.outputs.status }}
           webhook-id: "${{ secrets.WEBHOOK_ID }}"
