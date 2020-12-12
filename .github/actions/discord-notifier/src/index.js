@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-// const github = require("@actions/github");
+const github = require("@actions/github");
 // const fetch = require("node-fetch").default;
 const discord = require("discord.js");
 
