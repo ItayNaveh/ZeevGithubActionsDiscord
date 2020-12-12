@@ -1,6 +1,7 @@
 const core = require("@actions/core");
 // const github = require("@actions/github");
 // const fetch = require("node-fetch").default;
+const discord = require("discord.js");
 
 const main = async() => {
     try {
@@ -9,6 +10,8 @@ const main = async() => {
         const status = core.getInput("status");
         //success
         //failure
+        const webhook = new discord.WebhookClient(webhookID, webhookToken);
+        webhook.send("ooooooooooga booga")
 
 
         // const data = await response.json();
