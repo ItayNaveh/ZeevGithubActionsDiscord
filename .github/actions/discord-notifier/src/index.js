@@ -10,25 +10,26 @@ const main = async() => {
         const status = core.getInput("status");
         //success
         //failure
-        const webhook = new discord.WebhookClient(webhookID, webhookToken);
-        await webhook.send("ooooooooooga booga");
+        // const webhook = new discord.WebhookClient(webhookID, webhookToken);
 
-        // const data = await response.json();
-        // console.log("status -", response.status);
-        // console.log(data);
-        // console.log("done");
-        // console.log("action:", github.context.action);
-        // console.log("actor: ", github.context.actor);
-        // console.log("eventName:", github.context.eventName);
-        // console.log("issue:", github.context.issue);
-        // console.log("job:", github.context.job);
-        // console.log("payload:", github.context.payload);
-        // console.log("ref:", github.context.ref);
-        // console.log("repo:", github.context.repo);
-        // console.log("runId:", github.context.runId);
-        // console.log("runNumber:", github.context.runNumber);
-        // console.log("sha:", github.context.sha);
-        // console.log("workflow:", github.context.workflow);
+        // const embed = new discord.MessageEmbed();
+        // embed.setTitle()
+
+        // await webhook.send("ooooooooooga booga");
+
+        console.log("done");
+        console.log("action:", github.context.action);
+        console.log("actor: ", github.context.actor);
+        console.log("eventName:", github.context.eventName);
+        console.log("issue:", github.context.issue);
+        console.log("job:", github.context.job);
+        console.log("payload:", github.context.payload);
+        console.log("ref:", github.context.ref);
+        console.log("repo:", github.context.repo);
+        console.log("runId:", github.context.runId);
+        console.log("runNumber:", github.context.runNumber);
+        console.log("sha:", github.context.sha);
+        console.log("workflow:", github.context.workflow);
     } catch (error) {
         core.setFailed(error.message);
         process.exit(1);
