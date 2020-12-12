@@ -22,22 +22,29 @@ const main = async() => {
             {name: "Status", value: status}
         );
 
+        if (status == "success") {
+            embed.setColor([70,255,50]);
+        } else if (status == "failure") {
+            embed.setColor([255,40,50]);
+        } else {
+            await webhook.send(`this message shouldnt be sent \n${data.commits[data.commits.length - 1].url}`);
+        }
 
         await webhook.send(embed);
 
-        console.log("done");
-        console.log("action:", github.context.action);
-        console.log("actor: ", github.context.actor);
-        console.log("eventName:", github.context.eventName);
-        console.log("issue:", github.context.issue);
-        console.log("job:", github.context.job);
-        console.log("payload:", github.context.payload);
-        console.log("ref:", github.context.ref);
-        console.log("repo:", github.context.repo);
-        console.log("runId:", github.context.runId);
-        console.log("runNumber:", github.context.runNumber);
-        console.log("sha:", github.context.sha);
-        console.log("workflow:", github.context.workflow);
+        // console.log("done");
+        // console.log("action:", github.context.action);
+        // console.log("actor: ", github.context.actor);
+        // console.log("eventName:", github.context.eventName);
+        // console.log("issue:", github.context.issue);
+        // console.log("job:", github.context.job);
+        // console.log("payload:", github.context.payload);
+        // console.log("ref:", github.context.ref);
+        // console.log("repo:", github.context.repo);
+        // console.log("runId:", github.context.runId);
+        // console.log("runNumber:", github.context.runNumber);
+        // console.log("sha:", github.context.sha);
+        // console.log("workflow:", github.context.workflow);
     } catch (error) {
         core.setFailed(error.message);
         process.exit(1);
